@@ -4,8 +4,8 @@ VectrHAl's main purpose is to add a hardware abstraction layer interface to allo
 ## **This project is under initial development. Things will probably break.**
 ## Current goal roadmap:
 - [ ] Plan hardware abstraction layer (HAL).
-- [ ] Implement Basic HAL functions
-- [ ] Create Arduino HAL Implementation for testing (In external library. Not part of VectrCore).
+- [ ] Implement Basic HAL interfaces.
+- [ ] Create Arduino HAL Implementation for testing (In external library. Not part of VectrHAL).
 - [ ] Documentation.
 ## To implement onto a platform:##
 - A library must be made to implement multiple functions in the hardware abstraction layer:
