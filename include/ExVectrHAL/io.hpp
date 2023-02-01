@@ -24,7 +24,7 @@ namespace Interface
         virtual ~HAL_IO() {}
 
         /**
-         * @brief writes bytes then reads bytes to IO. Usefull for stuff like I2C communications.
+         * @brief writes bytes then reads bytes to IO. Usefull for stuff like I2C communications with sensors.
          * @param writeBuf Pointer to data to write.
          * @param readBuf Pointer to data to read to.
          * @param writeSize Number of bytes to write.
