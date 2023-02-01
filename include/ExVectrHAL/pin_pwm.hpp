@@ -19,22 +19,16 @@ namespace Interface
 
         virtual ~HAL_PinPWM() {}
 
-
         /**
          * Initialises PWM output.
+         * @param pin Which pin to control.
          */
-        virtual void init() = 0;
-
-        /**
-         * Enables or disables PWM output.
-         * @param enable Enable or disable. Defaults to true.
-         */
-        virtual void enable(bool enable = true) = 0;
+        virtual void init(int32_t pin) = 0;
 
         /**
          * @returns Which pin this controls.
          */
-        virtual uint32_t getPin() = 0;
+        virtual int32_t getPin() = 0;
 
         /**
          * Sets pin value. From 0 to 1.

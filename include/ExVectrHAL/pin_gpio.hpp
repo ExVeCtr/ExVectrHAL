@@ -30,13 +30,14 @@ namespace Interface
 
         /**
          * Initialises GPIO.
+         * @param pin Which pin to control.
          */
-        virtual void init() = 0;
+        virtual void init(int32_t pin) = 0;
 
         /**
          * @returns Which pin this controls.
          */
-        virtual uint32_t getPin() = 0;
+        virtual int32_t getPin() = 0;
 
         /**
          * Sets pin value.
