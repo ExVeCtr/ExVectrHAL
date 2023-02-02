@@ -11,9 +11,18 @@ namespace VCTR
  * Sets GPIO to be either input of output.
  */
 enum class GPIO_IOMODE_t {
-    NONE = 0, //Signals some error or that the state has not been set yet
-    INPUT = 1,
-    OUTPUT = 2,
+    IOMODE_NONE = 0, //Signals some error or that the state has not been set yet
+    IOMODE_INPUT = 1,
+    IOMODE_OUTPUT = 2,
+};
+
+/**
+ * Sets GPIO pin to have input pullup or pulldown. 
+ */
+enum class GPIO_PULL_t {
+    PULL_NONE = 0, //Signals some error or that the state has not been set yet
+    PULL_UP = 1,
+    PULL_DOWN = 2,
 };
 
 namespace Interface
@@ -32,7 +41,7 @@ namespace Interface
          * Initialises GPIO.
          * @param pin Which pin to control.
          */
-        virtual void init(int32_t pin) = 0;
+        virtual void init(int32_t pin, GPIO_IOMODE_t mode) = 0;
 
         /**
          * @returns Which pin this controls.
@@ -66,13 +75,13 @@ namespace Interface
          * 1 is pullup, 0 none, -1 pulldown.
          * @param pull Which pull mode to set pin to.
          */
-        virtual void setPinPull(int pull) = 0;
+        virtual void setPinPull(GPIO_PULL_t pull) = 0;
 
         /**
          * 1 is pullup, 0 none, -1 pulldown.
          * @returns current pin pullmode.
          */
-        virtual int getPinPull() = 0;
+        virtual GPIO_PULL_t getPinPull() = 0;
 
     };
 
