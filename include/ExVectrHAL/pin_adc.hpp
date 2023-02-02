@@ -31,12 +31,12 @@ namespace Interface
         virtual int32_t getPin() = 0;
 
         /**
-         * @returns current pin input. 0 to 1.
+         * @returns current pin input.
          */
-        virtual float getPinValue() = 0;
+        virtual int32_t getPinValue() = 0;
 
         /**
-         * Sets pin resolution. Will not affect input values.
+         * Sets pin resolution.
          * @param value Which resolution the ADC will use.
          */
         virtual void setPinResolution(uint32_t value) = 0;
@@ -44,7 +44,7 @@ namespace Interface
         /**
          * @returns current adc resolution.
          */
-        virtual uint32_t setPinResolution() = 0;
+        virtual uint32_t getPinResolution() = 0;
 
     };
 

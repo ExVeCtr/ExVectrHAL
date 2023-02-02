@@ -11,7 +11,7 @@ namespace Interface
 {
 
     /**
-     * @brief Interface for GPIO pins.
+     * @brief Interface for PWM pins.
     */
     class HAL_PinPWM
     {
@@ -42,15 +42,26 @@ namespace Interface
         virtual float getPinValue() = 0;
 
         /**
-         * Sets pwm frequency. From 0 to 1.
+         * Sets pwm frequency.
          * @param value Which frequency [Hz] to set PWM to.
          */
-        virtual void setPinFrequency(uint32_t value) = 0;
+        virtual void setPinFrequency(float value) = 0;
 
         /**
          * @returns current PWM Frequency.
          */
-        virtual uint32_t getPinFrequency() = 0;
+        virtual float getPinFrequency() = 0;
+
+        /**
+         * Sets pwm resolution.
+         * @param value Which resolution [bits] to set PWM to.
+         */
+        virtual void setPinResolution(uint32_t value) = 0;
+
+        /**
+         * @returns current PWM resolution.
+         */
+        virtual uint32_t getPinResolution() = 0;
 
     };
 
