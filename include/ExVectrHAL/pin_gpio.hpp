@@ -1,5 +1,5 @@
 #ifndef EXVECTRHAL_PINGPIO_H
-#define EXVECTRHAL_PINGPIO_H
+#define EXVECTRPINGPIO_H
 
 #include "stdint.h"
 
@@ -25,17 +25,17 @@ enum class GPIO_PULL_t {
     PULL_DOWN = 2,
 };
 
-namespace Interface
+namespace HAL
 {
 
     /**
      * @brief Interface for GPIO pins.
     */
-    class HAL_PinGPIO
+    class PinGPIO
     {
     public:
 
-        virtual ~HAL_PinGPIO() {}
+        virtual ~PinGPIO() {}
 
         /**
          * Initialises GPIO.

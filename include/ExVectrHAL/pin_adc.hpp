@@ -1,5 +1,5 @@
 #ifndef EXVECTRHAL_PINADC_H
-#define EXVECTRHAL_PINADC_H
+#define EXVECTRPINADC_H
 
 #include "stdint.h"
 
@@ -7,17 +7,17 @@
 namespace VCTR
 {
 
-namespace Interface
+namespace HAL
 {
 
     /**
      * @brief Interface for any type of analog input. Usually ADCs.
     */
-    class HAL_PinADC
+    class PinADC
     {
     public:
 
-        virtual ~HAL_PinADC() {}
+        virtual ~PinADC() {}
 
         /**
          * Initialises ADC input.

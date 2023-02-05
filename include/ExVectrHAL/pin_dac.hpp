@@ -1,5 +1,5 @@
 #ifndef EXVECTRHAL_PINDAC_H
-#define EXVECTRHAL_PINDAC_H
+#define EXVECTRPINDAC_H
 
 #include "stdint.h"
 
@@ -7,17 +7,17 @@
 namespace VCTR
 {
 
-namespace Interface
+namespace HAL
 {
 
     /**
      * @brief Interface for any type of analog output. Usually DACs.
     */
-    class HAL_PinDAC
+    class PinDAC
     {
     public:
 
-        virtual ~HAL_PinDAC() {}
+        virtual ~PinDAC() {}
 
         /**
          * Initialises DAC output.

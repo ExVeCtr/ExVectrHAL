@@ -2,6 +2,7 @@
 #define EXVECTRHAL_IO_H
 
 #include "stdint.h"
+#include "stddef.h"
 
 #include "input.hpp"
 #include "output.hpp"
@@ -10,18 +11,18 @@
 namespace VCTR
 {
 
-namespace Interface
+namespace HAL
 {
     	
     /**
      * @brief   Abstract class for any type of IO. Implements a few useful functions. 
      *          All bus types like I2C, SPI, CAN etc. should use this interface. Even a wireless network datalink layer.
     */
-    class HAL_IO: public HAL_Input, public HAL_Output
+    class IO: public Input, public Output
     {
     public:
 
-        virtual ~HAL_IO() {}
+        virtual ~IO() {}
 
         /**
          * @brief writes bytes then reads bytes to IO. Usefull for stuff like I2C communications with sensors.

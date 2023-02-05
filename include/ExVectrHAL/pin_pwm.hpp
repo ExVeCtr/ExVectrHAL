@@ -7,17 +7,17 @@
 namespace VCTR
 {
 
-namespace Interface
+namespace HAL
 {
 
     /**
      * @brief Interface for PWM pins.
     */
-    class HAL_PinPWM
+    class PinPWM
     {
     public:
 
-        virtual ~HAL_PinPWM() {}
+        virtual ~PinPWM() {}
 
         /**
          * Initialises PWM output.
