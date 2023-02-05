@@ -1,27 +1,28 @@
 #ifndef EXVECTRHAL_INPUT_H
 #define EXVECTRHAL_INPUT_H
 
+#include "stddef.h"
 #include "stdint.h"
 
 
 namespace VCTR
 {
 
-namespace Interface
+namespace HAL
 {
 
     /**
      * @brief Interface class for input stuff, mainly digital communication.
     */
-    class HAL_Input
+    class Input
     {
     private:
     public:
 
-        virtual ~HAL_Input() {}; //Virtual because this will be inhereted from
+        virtual ~Input() {}; //Virtual because this will be inhereted from
 
         /**
-         * @returns the number of bytes available to read. Or 1 and 0 for boolean.
+         * @returns the number of bytes available to read. Or 1 or 0 for boolean.
         */
         virtual size_t readable() = 0;
 
@@ -39,9 +40,7 @@ namespace Interface
          * @param byte Reference to the byte to receive the read byte.
          * @returns true if successfull, false otherwise
         */
-        bool readByte(uint8_t& byte) {
-            return readData(&byte, 1) == 1;
-        }
+        bool readByte(uint8_t& byte);
 
     };
 

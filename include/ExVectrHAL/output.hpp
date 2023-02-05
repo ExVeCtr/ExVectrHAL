@@ -2,28 +2,29 @@
 #define EXVECTRHAL_OUTPUT_H
 
 #include "stdint.h"
+#include "stddef.h"
 
 
 namespace VCTR
 {
 
-namespace Interface
+namespace HAL
 {
 
     /**
      * @brief Interface class for output stuff, mainly digital communication.
     */
-    class HAL_Output
+    class Output
     {
     private:
     public:
 
-        virtual ~HAL_Output() {}; //Virtual because this will be inhereted from
+        virtual ~Output() {}; //Virtual because this will be inhereted from
 
         /**
-         * @returns number of bytes that can be written. Usually implemented as boolean with 1 or 0.
+         * @returns number of bytes that can be written. -1 means no limit to data size.
         */
-        virtual size_t writable() = 0;
+        virtual int32_t writable() = 0;
 
         /**
          * @brief Writes the data from data pointer.
@@ -36,12 +37,10 @@ namespace Interface
 
         /**
          * @brief writes a single byte. 
-         * @param byte Reference to the byte to receive the write byte.
+         * @param byte Byte to be written to output.
          * @returns true if successfull, false otherwise
         */
-        bool writeByte(uint8_t& byte) {
-            return writeData(&byte, 1) == 1;
-        }
+        bool writeByte(uint8_t byte);
 
     };
 
