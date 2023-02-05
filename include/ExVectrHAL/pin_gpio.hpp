@@ -1,5 +1,5 @@
 #ifndef EXVECTRHAL_PINGPIO_H
-#define EXVECTRPINGPIO_H
+#define EXVECTRHAL_PINGPIO_H
 
 #include "stdint.h"
 
