@@ -30,17 +30,19 @@ namespace HAL
          * @brief Reads the data and places it into the given data pointer.
          * @param data Pointer to where to place read data.
          * @param bytes Number of bytes to read. Will be limited to this number.
+         * @param endTransfer Set to false if doing mulitple reads. Last read should have endTransfer set to true.
          * 
          * @return number of bytes actually read and placed into data pointer.
         */
-        virtual size_t readData(void* data, size_t size) = 0;
+        virtual size_t readData(void* data, size_t size, bool endTransfer = true) = 0;
 
         /**
          * @brief reads a single byte. 
          * @param byte Reference to the byte to receive the read byte.
+         * @param endTransfer Set to false if doing mulitple reads. Last read should have endTransfer set to true.
          * @returns true if successfull, false otherwise
         */
-        bool readByte(uint8_t& byte);
+        bool readByte(uint8_t& byte, bool endTransfer = true);
 
     };
 
