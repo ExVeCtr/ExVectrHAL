@@ -4,6 +4,9 @@
 #include "stddef.h"
 #include "stdint.h"
 
+#include "io_types.hpp"
+#include "io_params.hpp"
+
 
 namespace VCTR
 {
@@ -19,7 +22,21 @@ namespace HAL
     private:
     public:
 
-        virtual ~Input() {}; //Virtual because this will be inhereted from
+        virtual ~Input() {}; //Virtual because this will be inhereted from.
+
+        /**
+         * @brief Gets the type of bus this is.
+         * @return IO_TYPE_t enum.
+         */
+        virtual IO_TYPE_t getInputType() const = 0;
+
+        /**
+         * @brief Changes given parameter. 
+         * @param param What parameter to change.
+         * @param value What to change parameter to.
+         * @return True if successfull and parameter is supported.
+         */
+        virtual bool setInputParam(IO_PARAM_t param, int32_t value) = 0;
 
         /**
          * @returns the number of bytes available to read. Or 1 or 0 for boolean.

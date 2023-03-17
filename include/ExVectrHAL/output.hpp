@@ -4,6 +4,9 @@
 #include "stdint.h"
 #include "stddef.h"
 
+#include "io_types.hpp"
+#include "io_params.hpp"
+
 
 namespace VCTR
 {
@@ -20,6 +23,20 @@ namespace HAL
     public:
 
         virtual ~Output() {}; //Virtual because this will be inhereted from
+
+        /**
+         * @brief Gets the type of bus this is.
+         * @return IO_TYPE_t enum.
+         */
+        virtual IO_TYPE_t getOutputType() const = 0;
+
+        /**
+         * @brief Changes given parameter. 
+         * @param param What parameter to change.
+         * @param value What to change parameter to.
+         * @return True if successfull and parameter is supported.
+         */
+        virtual bool setOutputParam(IO_PARAM_t param, int32_t value) = 0;
 
         /**
          * @returns number of bytes that can be written. -1 means no limit to data size.
