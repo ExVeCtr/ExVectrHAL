@@ -1,5 +1,5 @@
 #ifndef EXVECTRHAL_PINDAC_H
-#define EXVECTRPINDAC_H
+#define EXVECTRHAL_PINDAC_H
 
 #include "stdint.h"
 
