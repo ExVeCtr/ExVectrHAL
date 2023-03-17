@@ -9,7 +9,8 @@ ExVectrHAL's main purpose is to add a hardware abstraction layer interface to al
     - [X] Bus Device.
     - [X] Basic pin types (GPIO, PWM, ADC, DAC etc.).
 - [ ] ~~Create Windows HAL Implementation for main testing (In external library. Not part of ExVectrHAL).~~ Currently not needed for windows platform.
-- [ ] Create Arduino HAL Implementation for embedded testing (In external library. Not part of ExVectrHAL).
+- [X] Create Arduino HAL Implementation for embedded testing (In external library. Not part of ExVectrHAL).
+- [ ] Add interrupt system.
 - [ ] Documentation.
 ## To implement onto a platform:##
 - A library must be made to implement multiple functions in the hardware abstraction layer:
