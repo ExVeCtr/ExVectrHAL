@@ -28,7 +28,7 @@ namespace HAL
          * @brief Gets the type of bus this is.
          * @return IO_TYPE_t enum.
          */
-        virtual IO_TYPE_t getInputType() const = 0;
+        virtual HAL::IO_TYPE_t getInputType() const = 0;
 
         /**
          * @brief Changes given parameter. 
@@ -36,10 +36,10 @@ namespace HAL
          * @param value What to change parameter to.
          * @return True if successfull and parameter is supported.
          */
-        virtual bool setInputParam(IO_PARAM_t param, int32_t value) = 0;
+        virtual bool setInputParam(HAL::IO_PARAM_t param, int32_t value) = 0;
 
         /**
-         * @returns the number of bytes available to read. Or 1 or 0 for boolean.
+         * @returns the number of bytes available to read at the moment. Or 1 or 0 for boolean.
         */
         virtual size_t readable() = 0;
 

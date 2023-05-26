@@ -28,7 +28,7 @@ namespace HAL
          * @brief Gets the type of bus this is.
          * @return IO_TYPE_t enum.
          */
-        virtual IO_TYPE_t getOutputType() const = 0;
+        virtual HAL::IO_TYPE_t getOutputType() const = 0;
 
         /**
          * @brief Changes given parameter. 
@@ -36,10 +36,10 @@ namespace HAL
          * @param value What to change parameter to.
          * @return True if successfull and parameter is supported.
          */
-        virtual bool setOutputParam(IO_PARAM_t param, int32_t value) = 0;
+        virtual bool setOutputParam(HAL::IO_PARAM_t param, int32_t value) = 0;
 
         /**
-         * @returns number of bytes that can be written. -1 means no limit to data size.
+         * @returns number of bytes that can be written at the moment. -1 means no limit to data size.
         */
         virtual int32_t writable() = 0;
 
