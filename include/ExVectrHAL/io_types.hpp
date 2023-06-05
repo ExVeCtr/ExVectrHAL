@@ -16,9 +16,16 @@ namespace VCTR
             BUS_SPI,
             BUS_UART,
             BUS_CAN,
+            ANALOG_PWM_O,
+            ANALOG_PWM_I,
+            ANALOG_DAC,
+            ANALOG_ADC,
+            ANALOG_HBRIDGE,
+            DIGITAL_I,
+            DIGITAL_O,
             //Topic used as base. Usually for testing using topicIO in ExVectrNetwork.
             TOPIC,
-            //Used to signify unkown types. Anything equal or greater than this is ok other type
+            //Used to signify unknown/special types. Anything equal or greater than this is some other type
             OTHER //KEEP AT END.
         };
     }

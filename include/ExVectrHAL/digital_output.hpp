@@ -1,5 +1,5 @@
-#ifndef EXVECTRHAL_OUTPUT_H
-#define EXVECTRHAL_OUTPUT_H
+#ifndef EXVECTRHAL_DIGITALOUTPUT_H
+#define EXVECTRHAL_DIGITALOUTPUT_H
 
 #include "stdint.h"
 #include "stddef.h"
@@ -17,12 +17,12 @@ namespace HAL
     /**
      * @brief Interface class for output stuff, mainly digital communication.
     */
-    class Output
+    class DigitalOutput
     {
     private:
     public:
 
-        virtual ~Output() {}; //Virtual because this will be inhereted from
+        virtual ~DigitalOutput() {}; //Virtual because this will be inhereted from
 
         /**
          * @brief Gets the type of bus this is.
@@ -51,7 +51,7 @@ namespace HAL
          * 
          * @return number of bytes actually written.
         */
-        virtual size_t writeData(const void* data, size_t size, bool endTransfer = true) = 0;
+        virtual size_t writeData(const void* data, size_t bytes, bool endTransfer = true) = 0;
 
         /**
          * @brief writes a single byte. 
@@ -59,7 +59,7 @@ namespace HAL
          * @param endTransfer Set to false if doing mulitple writes. Last write should have endTransfer set to true.
          * @returns true if successfull, false otherwise
         */
-        bool writeByte(uint8_t byte, bool endTransfer = true);
+        virtual bool writeByte(uint8_t byte, bool endTransfer = true);
 
     };
 

@@ -1,5 +1,5 @@
-#ifndef EXVECTRHAL_INPUT_H
-#define EXVECTRHAL_INPUT_H
+#ifndef EXVECTRHAL_DIGITALINPUT_H
+#define EXVECTRHAL_DIGITALINPUT_H
 
 #include "stddef.h"
 #include "stdint.h"
@@ -17,12 +17,12 @@ namespace HAL
     /**
      * @brief Interface class for input stuff, mainly digital communication.
     */
-    class Input
+    class DigitalInput
     {
     private:
     public:
 
-        virtual ~Input() {}; //Virtual because this will be inhereted from.
+        virtual ~DigitalInput() {}; //Virtual because this will be inhereted from.
 
         /**
          * @brief Gets the type of bus this is.
@@ -59,7 +59,7 @@ namespace HAL
          * @param endTransfer Set to false if doing mulitple reads. Last read should have endTransfer set to true.
          * @returns true if successfull, false otherwise
         */
-        bool readByte(uint8_t& byte, bool endTransfer = true);
+        virtual bool readByte(uint8_t& byte, bool endTransfer = true);
 
     };
 

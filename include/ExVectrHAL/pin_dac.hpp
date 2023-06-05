@@ -11,7 +11,7 @@ namespace HAL
 {
 
     /**
-     * @brief Interface for any type of analog output. Usually DACs.
+     * @brief Interface for any type of analog output pin
     */
     class PinDAC
     {
