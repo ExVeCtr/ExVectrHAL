@@ -39,9 +39,9 @@ namespace HAL
         virtual bool setOutputParam(HAL::IO_PARAM_t param, int32_t value) = 0;
 
         /**
-         * @returns number of values that can be written at the moment. -1 means no limit to data size.
+         * @returns number of values that can be written at the moment.
         */
-        virtual int32_t writable() = 0;
+        virtual size_t writable() = 0;
 
         /**
          * @brief Writes the values from values pointer.

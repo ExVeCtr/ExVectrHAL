@@ -39,7 +39,7 @@ namespace HAL
         virtual bool setInputParam(HAL::IO_PARAM_t param, int32_t value) = 0;
 
         /**
-         * @returns the number of values available to read at the moment. Or 1 or 0 for boolean.
+         * @returns the number of values available to read at the moment.
         */
         virtual size_t readable() = 0;
 
