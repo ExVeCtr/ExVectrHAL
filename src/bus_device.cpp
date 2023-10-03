@@ -22,10 +22,6 @@ namespace HAL
         verifyWrite_ = verifyWrite;
     }
 
-    bool BusDevice::writeReg(uint8_t reg, uint8_t byte) {
-        return writeReg(reg, &byte, 1);
-    }
-
     bool BusDevice::writeReg(uint8_t reg, uint8_t *bytes, size_t length) {
 
         if (ioBus_ == nullptr) {
@@ -64,10 +60,6 @@ namespace HAL
 
         return true;
 
-    }
-
-    bool BusDevice::readReg(uint8_t reg, uint8_t *byte) {
-        return readReg(reg, byte, 1);
     }
 
     bool BusDevice::readReg(uint8_t reg, uint8_t *bytes, size_t length) {   
