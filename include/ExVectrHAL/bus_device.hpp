@@ -47,9 +47,10 @@ namespace HAL
          * @param reg Register to write to.
          * @param bytes Pointer to bytes to write.
          * @param length Number of bytes to write.
+         * @param verifyWrite If true then after writting a byte to the device it will read it back and compare it to the written value. If they are not the same then the write is considered failed. This is slower.
          * @return true if successful, false otherwise. Will return false if verifyWrite_ is true and the read back value is not the same as the written value.
          */
-        bool writeReg(uint8_t reg, uint8_t *bytes, size_t length = 1);
+        bool writeReg(uint8_t reg, uint8_t *bytes, size_t length = 1, bool verifyWrite = false);
 
         /**
          * @brief Reads bytes from the given register.
