@@ -34,19 +34,18 @@ namespace VCTR
          */
         class PinGPIO
         {
+        protected:
+            int32_t pin_;
+
         public:
+            PinGPIO(int32_t pin);
+
             virtual ~PinGPIO() {}
 
             /**
              * Initialises GPIO.
-             * @param pin Which pin to control.
              */
-            virtual void init(int32_t pin, GPIO_IOMODE_t mode) = 0;
-
-            /**
-             * @returns Which pin this controls.
-             */
-            virtual int32_t getPin() = 0;
+            virtual void init(GPIO_IOMODE_t mode) = 0;
 
             /**
              * Sets pin value.
@@ -82,6 +81,11 @@ namespace VCTR
              * @returns current pin pullmode.
              */
             virtual GPIO_PULL_t getPinPull() = 0;
+
+            /**
+             * @returns Which pin this controls.
+             */
+            virtual int32_t getPin();
         };
 
     }
