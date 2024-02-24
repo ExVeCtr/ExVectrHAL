@@ -15,7 +15,7 @@ namespace VCTR
             ioBus_ = nullptr;
         }
 
-        BusDevice::BusDevice(DigitalIO &ioBus, uint8_t spiRWBit, bool invertRWBit, bool verifyWrite)
+        BusDevice::BusDevice(DigitalIO &ioBus, int spiRWBit, bool invertRWBit, bool verifyWrite)
         {
             ioBus_ = &ioBus;
             spiRWBit_ = spiRWBit;
@@ -23,7 +23,12 @@ namespace VCTR
             verifyWrite_ = verifyWrite;
         }
 
-        bool BusDevice::writeReg(uint8_t reg, uint8_t *bytes, size_t length, bool verifyWrite)
+        bool BusDevice::writeReg(uint8_t reg, uint8_t byte, bool verifyWrite)
+        {
+            return writeReg(reg, &byte, 1, verifyWrite);
+        }
+
+        bool BusDevice::writeReg(uint8_t reg, const uint8_t *bytes, size_t length, bool verifyWrite)
         {
 
             if (ioBus_ == nullptr)
@@ -33,16 +38,21 @@ namespace VCTR
             }
 
             uint8_t command = reg;
-            if (invertRWBit_)
-            {
-                command |= (1 << spiRWBit_);
-            }
-            else
-            {
-                command &= (~(1 << spiRWBit_));
+
+            if (spiRWBit_ >= 0) {
+
+                if (invertRWBit_)
+                {
+                    command |= (1 << spiRWBit_);
+                }
+                else
+                {
+                    command &= (~(1 << spiRWBit_));
+                }
+
             }
 
-            if (!ioBus_->writeByte(command, false))
+            if (!ioBus_->writeByte(reg, false))
             {
                 LOG_MSG("failed to write command byte!\n");
                 return false;

@@ -26,7 +26,7 @@ namespace HAL
 
         bool verifyWrite_ = false;
 
-        uint8_t spiRWBit_ = 0;
+        int spiRWBit_ = 0;
         bool invertRWBit_ = false;
 
     public:
@@ -36,11 +36,21 @@ namespace HAL
         /**
          * @brief Standard constructor.
          * @param ioBus Input/Output bus the device is connected to.
-         * @param spiRWBit Bit to set to 1 when writing to the device and 0 when reading from the device.
+         * @param spiRWBit Bit to set to 1 when writing to the device and 0 when reading from the device. Default is -1 which means that the spiRWBit will not be used.
          * @param invertRWBit If false then the spiRWBit will be set to 1 when reading and 0 when writing. If true then the opposite.
          * @param verifyWrite If true then after writting a byte to the device it will read it back and compare it to the original value. If they are not the same then the write is considered failed.
          */
-        BusDevice(DigitalIO &ioBus, uint8_t spiRWBit = 0, bool invertRWBit = false, bool verifyWrite = false);
+        BusDevice(DigitalIO &ioBus, int spiRWBit = -1, bool invertRWBit = false, bool verifyWrite = false);
+
+
+        /**
+         * @brief Writes the given bytes to the given register.
+         * @param reg Register to write to.
+         * @param byte Byte to write.
+         * @param verifyWrite If true then after writting a byte to the device it will read it back and compare it to the written value. If they are not the same then the write is considered failed. This is slower.
+         * @return true if successful, false otherwise. Will return false if verifyWrite_ is true and the read back value is not the same as the written value.
+         */
+        bool writeReg(uint8_t reg, uint8_t byte, bool verifyWrite = false);
 
         /**
          * @brief Writes the given bytes to the given register.
@@ -50,7 +60,7 @@ namespace HAL
          * @param verifyWrite If true then after writting a byte to the device it will read it back and compare it to the written value. If they are not the same then the write is considered failed. This is slower.
          * @return true if successful, false otherwise. Will return false if verifyWrite_ is true and the read back value is not the same as the written value.
          */
-        bool writeReg(uint8_t reg, uint8_t *bytes, size_t length = 1, bool verifyWrite = false);
+        bool writeReg(uint8_t reg, const uint8_t *bytes, size_t length, bool verifyWrite = false);
 
         /**
          * @brief Reads bytes from the given register.
