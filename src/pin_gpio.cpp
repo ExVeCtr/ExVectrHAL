@@ -2,19 +2,14 @@
 
 #include "ExVectrHAL/pin_gpio.hpp"
 
-namespace VCTR
-{
+namespace VCTR {
 
-    namespace HAL
-    {
+namespace HAL {
 
-        PinGPIO::PinGPIO(int32_t pin) : pin_(pin) {}
+PinGPIO::PinGPIO(int32_t pin) : pin_(pin) {}
 
-        int32_t PinGPIO::getPin()
-        {
-            return pin_;
-        }
+int32_t PinGPIO::getPin() { return pin_; }
 
-    };
+}; // namespace HAL
 
-}
+} // namespace VCTR
